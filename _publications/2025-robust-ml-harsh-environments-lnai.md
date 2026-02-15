@@ -1,5 +1,6 @@
 ---
 title: "Robust Machine Learning for Harsh Environments"
+category: book
 collection: publications
 permalink: /publication/2025-robust-ml-harsh-environments-lnai
 date: 2025-01-01
