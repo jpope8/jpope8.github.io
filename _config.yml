@@ -25,10 +25,10 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "JamesPope.png"
-  name             : "Your Sidebar Name"
+  name             : "James Pope"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
+  bio              : "Senior Lecturer in Data Science at the University of Bristol. My research focuses on Artificial Intelligence and Machine Learning for Internet of Things systems, with particular emphasis on Edge AI, cybersecurity, and robust learning in resource-constrained environments. I also work in digital health, applying machine learning to wearable sensing and real-world clinical data."
+  location         : "Bristol, UK"
   employer         : "University of Bristol"
   uri              : # URL
   email            : "james.pope@bristol.ac.uk" 
@@ -86,7 +86,7 @@ author:
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
   book:
-    title: 'Book Chapter'
+    title: 'Book Chapters'
   journal:
     title: 'Journal Articles'    
   conference:
