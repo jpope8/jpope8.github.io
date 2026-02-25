@@ -11,35 +11,39 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* Ph.D in Information Technology, George Mason University, 2016
+* M.S. in Telecommunications, George Mason University, 2010
+* B.S. B.A in Information Systems, Auburn University at Montgomery, 1995
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* Spring 2022: Senior Lecturer in Data Science
+  * University of Bristol
+  * Duties includes: Teaching, Research, Admin
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* Spring 2021: Senior Research Associate in Cybersecurity for IoT
+  * University of Bristol
+  * Duties included: Embedded Programming, Machine Learning Design/Development
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* Summer 2016: Research Associate in IoT for E-Health
+  * University of Bristol
+  * Duties included: Wearable/Embedded Programming, BLE Network Programming
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Python
+  * PyTorch
+  * TensorFlow
+  * Scikit-Learn
+* Java
+  * Weka ML Workbench
+* Flutter/Dart
+* Databases
+  * Relational (Oracle, MS SQL Server)
+  * Non-relatational (Cassandra, MongoDB)
+* Operating Systems
+  * Contiki-OS
+  * Linux
 
 Publications
 ======
@@ -59,6 +63,4 @@ Teaching
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+
