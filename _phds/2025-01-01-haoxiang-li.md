@@ -12,7 +12,7 @@ thesis_title: "Countering Harms Caused by Ransomware in the Internet of Things"
 
 **Programme:** PhD in Electrical and Electronic Engineering  
 **Role:** Second Supervisor  
-**Supervisors:** George Oikonomou; James Pope
+**Supervisors:** George Oikonomou; James Pope  
 **Status:** 2025–Present  
 
 **Thesis Title:**  

@@ -12,7 +12,7 @@ thesis_title: "Federated Learning for Wireless Communications"
 
 **Programme:** PhD in Electrical and Electronic Engineering  
 **Role:** Second Supervisor  
-**Supervisors:** Shuping Dang; James Pope
+**Supervisors:** Shuping Dang; James Pope  
 **Status:** 2023–Present  
 
 **Thesis Title:**  

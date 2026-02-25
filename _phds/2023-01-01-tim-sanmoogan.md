@@ -12,7 +12,7 @@ thesis_title: "Graph and Diffusion Models for Cell Tower Placement"
 
 **Programme:** PhD in Computer Science  
 **Role:** Third Supervisor  
-**Supervisors:** Robert Piechocki; Xiaoyang Wang; James Pope
+**Supervisors:** Robert Piechocki; Xiaoyang Wang; James Pope  
 **Status:** 2023–Present  
 
 **Thesis Title:**  
