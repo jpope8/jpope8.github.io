@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. James Pope — Senior Lecturer in Data Science</title>
+  <meta name="description" content="Senior Lecturer in Data Science at the University of Bristol. Research in AI/ML, IoT, Pervasive Health, and Cybersecurity." />
+
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon-180x180.png" />
+  <link rel="manifest" href="images/manifest.json" />
+
+  <style>
+    :root {
+      --navy:   #0d1b2a;
+      --blue:   #1e3a5f;
+      --accent: #2a7ab8;
+      --light:  #e8f1f8;
+      --text:   #1a1a2e;
+      --muted:  #5a6a7a;
+      --white:  #ffffff;
+      --card:   #f7fafd;
+      --border: #d0dce8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem;
+      height: 56px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.35);
+    }
+    .nav-brand { color: var(--white); font-weight: 700; font-size: 1rem; letter-spacing: .02em; }
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,.75);
+      text-decoration: none; font-size: .85rem;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: var(--white);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .hero-avatar {
+      width: 120px; height: 120px; border-radius: 50%;
+      border: 3px solid rgba(255,255,255,.45);
+      object-fit: cover;
+      display: block; margin: 0 auto 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,.4);
+    }
+    .hero h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: -.02em; }
+    .hero .title { font-size: 1.15rem; color: rgba(255,255,255,.8); margin: .4rem 0 .2rem; }
+    .hero .org   { font-size: 1rem;   color: rgba(255,255,255,.6); margin-bottom: 1.8rem; }
+    .hero-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin-bottom: 2rem; }
+    .tag {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      color: rgba(255,255,255,.9);
+      padding: .25rem .75rem; border-radius: 999px; font-size: .8rem;
+    }
+    .hero-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
+    .hero-link {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.3);
+      color: var(--white); text-decoration: none;
+      padding: .45rem 1.1rem; border-radius: 6px; font-size: .85rem;
+      transition: background .2s, border-color .2s;
+    }
+    .hero-link:hover { background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.5); }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 4rem 0 3rem; }
+    section.alt { background: var(--card); }
+
+    .section-label {
+      font-size: .7rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: .5rem;
+    }
+    h2 {
+      font-size: 1.6rem; font-weight: 700; color: var(--navy);
+      margin-bottom: 2rem; padding-bottom: .6rem;
+      border-bottom: 2px solid var(--border);
+    }
+    h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; }
+
+    /* ── STATS BAR ── */
+    .stats {
+      background: var(--accent);
+      display: flex; flex-wrap: wrap;
+    }
+    .stat {
+      flex: 1; min-width: 130px; text-align: center;
+      padding: 1.4rem 1rem;
+      border-right: 1px solid rgba(255,255,255,.2);
+      color: var(--white);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num   { font-size: 2rem; font-weight: 700; display: block; }
+    .stat-label { font-size: .75rem; opacity: .85; text-transform: uppercase; letter-spacing: .06em; }
+
+    /* ── ABOUT ── */
+    .about-text { font-size: 1.05rem; color: var(--text); max-width: 760px; }
+    .research-areas { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.4rem; }
+    .area-tag {
+      background: var(--light); color: var(--blue);
+      border: 1px solid var(--border);
+      padding: .3rem .85rem; border-radius: 6px; font-size: .85rem; font-weight: 500;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline { display: flex; flex-direction: column; gap: 1.5rem; }
+    .timeline-item {
+      display: grid; grid-template-columns: 170px 1fr;
+      gap: 0 1.5rem; align-items: start;
+    }
+    .timeline-date { font-size: .82rem; color: var(--muted); font-weight: 600; padding-top: .15rem; text-align: right; }
+    .timeline-body { border-left: 3px solid var(--border); padding-left: 1.2rem; position: relative; }
+    .timeline-body::before {
+      content: ''; position: absolute; left: -7px; top: .45rem;
+      width: 11px; height: 11px; border-radius: 50%;
+      background: var(--accent); border: 2px solid var(--white);
+    }
+    .timeline-sub    { font-size: .85rem; color: var(--muted); margin-top: .15rem; }
+    .timeline-detail { font-size: .9rem; color: var(--text); margin-top: .5rem; }
+
+    /* ── PROJECT CARDS ── */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1rem; }
+    .project-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.25rem;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .project-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.1); transform: translateY(-2px); }
+    .project-role {
+      display: inline-block; font-size: .72rem; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      background: var(--light); color: var(--accent);
+      border-radius: 4px; padding: .15rem .55rem; margin-bottom: .5rem;
+    }
+    .project-funder { font-size: .8rem; color: var(--muted); margin-top: .3rem; }
+    .project-dates  { font-size: .8rem; color: var(--muted); }
+
+    /* ── PUBLICATIONS ── */
+    .pub-year { font-size: 1.1rem; font-weight: 700; color: var(--accent); margin: 2rem 0 .8rem; }
+    .pub-year:first-of-type { margin-top: 0; }
+    .pub-list { display: flex; flex-direction: column; gap: .9rem; }
+    .pub-item {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1rem 1.2rem;
+      font-size: .9rem; line-height: 1.6;
+    }
+    .pub-venue { color: var(--muted); font-size: .83rem; margin-top: .25rem; }
+    .pub-badge {
+      display: inline-block; font-size: .7rem; font-weight: 700;
+      letter-spacing: .04em; text-transform: uppercase;
+      padding: .1rem .5rem; border-radius: 4px; margin-left: .5rem; vertical-align: middle;
+    }
+    .badge-journal { background: #dff0e8; color: #1a7a4a; }
+    .badge-chapter { background: #fdeede; color: #b05a00; }
+    .badge-award   { background: #fde8e8; color: #c0392b; }
+
+    /* ── SUPERVISION ── */
+    .students-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .student-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.1rem 1.2rem;
+    }
+    .student-dept  { font-size: .8rem; color: var(--muted); margin: .15rem 0 .5rem; }
+    .student-title { font-size: .88rem; color: var(--text); }
+    .student-role {
+      display: inline-block; font-size: .7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .05em;
+      background: var(--light); color: var(--blue);
+      border-radius: 4px; padding: .1rem .45rem; margin-top: .5rem;
+    }
+
+    /* ── AWARDS ── */
+    .awards-list { display: flex; flex-direction: column; gap: .75rem; }
+    .award-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 8px; padding: .9rem 1.1rem;
+    }
+    .award-icon { font-size: 1.4rem; flex-shrink: 0; padding-top: .1rem; }
+    .award-body { flex: 1; font-size: .9rem; }
+    .award-date { font-size: .8rem; color: var(--muted); }
+
+    /* ── MEDIA ── */
+    .media-cards { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .media-card {
+      flex: 1; min-width: 260px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.2rem 1.4rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+    }
+    .media-logo { font-size: 2rem; flex-shrink: 0; }
+    .media-body a { color: var(--accent); font-weight: 600; text-decoration: none; }
+    .media-body a:hover { text-decoration: underline; }
+    .media-date { font-size: .8rem; color: var(--muted); margin-top: .2rem; }
+
+    /* ── CONTACT ── */
+    .contact-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .contact-item {
+      display: flex; align-items: center; gap: .7rem;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 8px; padding: .8rem 1.1rem;
+      font-size: .9rem; text-decoration: none; color: var(--text);
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .contact-item:hover { border-color: var(--accent); box-shadow: 0 3px 12px rgba(42,122,184,.15); }
+    .contact-icon { font-size: 1.1rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,.5);
+      text-align: center; padding: 1.8rem; font-size: .82rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.8rem; }
+      .timeline-item { grid-template-columns: 1fr; }
+      .timeline-date { text-align: left; margin-bottom: .2rem; }
+      .nav-links { gap: .9rem; }
+      .nav-links a { font-size: .78rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">Dr. James Pope</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#supervision">Students</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <img class="hero-avatar" src="images/JamesPope.png" alt="Dr. James Pope" />
+  <h1>Dr. James Pope</h1>
+  <p class="title">Senior Lecturer in Data Science</p>
+  <p class="org">University of Bristol &middot; United Kingdom</p>
+  <div class="hero-tags">
+    <span class="tag">Artificial Intelligence</span>
+    <span class="tag">Machine Learning</span>
+    <span class="tag">Internet of Things</span>
+    <span class="tag">Pervasive Health</span>
+    <span class="tag">Cybersecurity</span>
+  </div>
+  <div class="hero-links">
+    <a class="hero-link" href="mailto:james.h.pope8@gmail.com">&#9993; Email</a>
+    <a class="hero-link" href="https://www.linkedin.com/in/jpope8/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="hero-link" href="https://github.com/jpope8" target="_blank" rel="noopener">GitHub</a>
+    <a class="hero-link" href="https://orcid.org/0000-0003-2656-363X" target="_blank" rel="noopener">ORCID</a>
+    <a class="hero-link" href="https://research-information.bris.ac.uk/en/persons/james-pope" target="_blank" rel="noopener">UoB Profile</a>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="stat"><span class="stat-num">30+</span><span class="stat-label">Years Experience</span></div>
+  <div class="stat"><span class="stat-num">50</span><span class="stat-label">Publications</span></div>
+  <div class="stat"><span class="stat-num">6</span><span class="stat-label">Funded Projects</span></div>
+  <div class="stat"><span class="stat-num">7</span><span class="stat-label">PhD Students</span></div>
+  <div class="stat"><span class="stat-num">2</span><span class="stat-label">Bronze Stars</span></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">Overview</div>
+    <h2>About</h2>
+    <p class="about-text">
+      Senior Lecturer in Data Science at the University of Bristol's School of Engineering Mathematics and Technology.
+      With over three decades of engineering experience spanning academia, defence industry, and US Army service,
+      my research sits at the intersection of machine learning, edge computing, and real-world sensing systems.
+      I hold a Ph.D. in Information Technology from George Mason University and have authored 50 peer-reviewed
+      works including 10 journal papers, 38 conference papers, and 2 book chapters.
+    </p>
+    <div class="research-areas">
+      <span class="area-tag">Artificial Intelligence &amp; ML</span>
+      <span class="area-tag">Internet of Things</span>
+      <span class="area-tag">Pervasive Health</span>
+      <span class="area-tag">Cybersecurity</span>
+      <span class="area-tag">Federated Learning</span>
+      <span class="area-tag">Edge Computing</span>
+      <span class="area-tag">Adversarial ML</span>
+      <span class="area-tag">Wearable Sensing</span>
+      <span class="area-tag">Graph Neural Networks</span>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="alt">
+  <div class="container">
+    <div class="section-label">Academic Background</div>
+    <h2>Education</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">2016</div>
+        <div class="timeline-body">
+          <h3>Ph.D. in Information Technology</h3>
+          <div class="timeline-sub">George Mason University &middot; Fairfax, Virginia, US</div>
+          <div class="timeline-detail">Dissertation: <em>A Control Plane for Low Power Lossy Networks</em>. Supervised by Prof. Robert Simon.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2010</div>
+        <div class="timeline-body">
+          <h3>M.S. in Telecommunications</h3>
+          <div class="timeline-sub">George Mason University &middot; Fairfax, Virginia, US</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">1995</div>
+        <div class="timeline-body">
+          <h3>B.S.B.A. in Information Systems</h3>
+          <div class="timeline-sub">Auburn University at Montgomery &middot; Alabama, US</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Career</div>
+    <h2>Research &amp; Teaching Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Mar 2022 &ndash; Present</div>
+        <div class="timeline-body">
+          <h3>Senior Lecturer in Data Science</h3>
+          <div class="timeline-sub">University of Bristol &middot; School of Engineering Mathematics &middot; UK</div>
+          <div class="timeline-detail">Teaching and research across undergraduate and postgraduate levels. Leads research in AI/ML, IoT, and cybersecurity. Supervises PhD students and contributes to unit direction including the Data Science Mini-Project.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">May 2021 &ndash; Feb 2022</div>
+        <div class="timeline-body">
+          <h3>Senior Research Associate in Cybersecurity for IoT</h3>
+          <div class="timeline-sub">University of Bristol &middot; SYNERGIA Project &middot; UK</div>
+          <div class="timeline-detail">Edge-based machine learning for cyber security of IoT systems. Led journal and conference publications; represented UoB at project meetings.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Aug 2020 &ndash; Jun 2021</div>
+        <div class="timeline-body">
+          <h3>Assistant Professor</h3>
+          <div class="timeline-sub">University of North Alabama &middot; Department of CS &amp; IS &middot; Florence, Alabama</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Aug 2018 &ndash; Jul 2020</div>
+        <div class="timeline-body">
+          <h3>Assistant Professor</h3>
+          <div class="timeline-sub">University of Montevallo &middot; Department of Computer Informatics &middot; Alabama</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Jul 2016 &ndash; Jul 2018</div>
+        <div class="timeline-body">
+          <h3>Research Associate in IoT for E-Health</h3>
+          <div class="timeline-sub">University of Bristol &middot; EurValve / SPHERE Project &middot; UK</div>
+          <div class="timeline-detail">Developed secure embedded software and IoT middleware for IMU wearable sensing. Prototyped RTOS firmware with wireless MCU (TI CC2650); collaborated with University of Sheffield and European partners.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Aug 2014 &ndash; May 2016</div>
+        <div class="timeline-body">
+          <h3>Adjunct Professor</h3>
+          <div class="timeline-sub">George Mason University &middot; Department of Computer Science &middot; Virginia</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2008 &ndash; 2016</div>
+        <div class="timeline-body">
+          <h3>Research Assistant</h3>
+          <div class="timeline-sub">George Mason University &middot; C3I Center &middot; Supervised by Prof. Robert Simon</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2001 &ndash; 2014</div>
+        <div class="timeline-body">
+          <h3>Industry: Defence Software &amp; IT Consulting</h3>
+          <div class="timeline-sub">Paladin Consulting &middot; 3Phoenix &middot; Lockheed Martin &middot; Northrop Grumman &middot; US</div>
+          <div class="timeline-detail">Roles included Navy sonar and radar display development, NoSQL fault-tolerance research for Navy systems, and web-based military logistics systems demonstrated at CENTCOM HQ. Deployed internationally including Iraq, Afghanistan, Bahrain, and Kuwait.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNDED PROJECTS -->
+<section id="projects" class="alt">
+  <div class="container">
+    <div class="section-label">Grants &amp; Funding</div>
+    <h2>Funded Research Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <span class="project-role">PI</span>
+        <h3>Surrogate Models for Gigascale Electromagnetics</h3>
+        <div class="project-funder">EPSRC IAA</div>
+        <div class="project-dates">Jan 2026 &ndash; Jun 2026</div>
+      </div>
+      <div class="project-card">
+        <span class="project-role">PI (UoB)</span>
+        <h3>Co-design of AI for Rehab Videos for PwS</h3>
+        <div class="project-funder">NIHR</div>
+        <div class="project-dates">Apr 2025 &ndash; Mar 2026</div>
+      </div>
+      <div class="project-card">
+        <span class="project-role">Co-I</span>
+        <h3>CHARIOT Project</h3>
+        <div class="project-funder">RITICS / EPSRC</div>
+        <div class="project-dates">Aug 2023 &ndash; Aug 2026</div>
+      </div>
+      <div class="project-card">
+        <span class="project-role">Co-I</span>
+        <h3>TORUS Project</h3>
+        <div class="project-funder">EPSRC</div>
+        <div class="project-dates">May 2023 &ndash; Sep 2028</div>
+      </div>
+      <div class="project-card">
+        <span class="project-role">Co-I</span>
+        <h3>ELABORATOR Project</h3>
+        <div class="project-funder">Horizon Europe</div>
+        <div class="project-dates">Jun 2023 &ndash; Nov 2026</div>
+      </div>
+      <div class="project-card">
+        <span class="project-role">Co-I</span>
+        <h3>SYNERGIA Project</h3>
+        <div class="project-funder">Innovate UK</div>
+        <div class="project-dates">Mar 2022 &ndash; Nov 2022</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <div class="section-label">Scholarly Output</div>
+    <h2>Publications <small style="font-size:.8rem;color:var(--muted);font-weight:400">(2 Book Chapters &middot; 10 Journal &middot; 38 Conference)</small></h2>
+
+    <div class="pub-year">2026</div>
+    <div class="pub-list">
+      <div class="pub-item">
+        <strong>James Pope</strong>, Y. Huang, Y. Wang, H. Li, C. Brierley, B. Arief, G. Oikonomou, &ldquo;Contrastive Representation Learning for IoT Packet Embeddings.&rdquo;
+        <div class="pub-venue"><em>IEEE Journal of Selected Areas in Sensors (JSAS)</em> &mdash; Under Review <span class="pub-badge badge-journal">Journal</span></div>
+      </div>
+      <div class="pub-item">
+        T. Rajkumar, S. Koerner, A. Pinto, K. O&rsquo;Hara, <strong>James Pope</strong>, et al., &ldquo;Personalised Stroke Rehabilitation: An AI Pipeline for Exercise Programmes Using a Co-Designed Decision Support Tablet Application.&rdquo;
+        <div class="pub-venue"><em>HEALTHINF 2026</em> &mdash; Accepted</div>
+      </div>
+      <div class="pub-item">
+        P. Singh, Y. Huang, Y. Wang, H. Li, G. Oikonomou, <strong>James Pope</strong>, &ldquo;Multi-Modal Model for Embedding Network and Audit Data for IoT Anomaly Detection.&rdquo;
+        <div class="pub-venue"><em>ICISSP 2026</em> &mdash; Accepted</div>
+      </div>
+    </div>
+
+    <div class="pub-year">2025</div>
+    <div class="pub-list">
+      <div class="pub-item">
+        W. Dennis, <strong>James Pope</strong>, &ldquo;Robust Machine Learning for Harsh Environments: A Framework and Evaluation of Key Architectural Choices.&rdquo;
+        <div class="pub-venue">Invited Book Chapter, <em>Springer LNAI</em> &mdash; Accepted <span class="pub-badge badge-chapter">Book Chapter</span></div>
+      </div>
+      <div class="pub-item">
+        M. Bicer, <strong>James Pope</strong>, L. Rochester, S. Del Din, L. Alcock, &ldquo;Neural Network-Based Granular Activity Recognition from Accelerometers.&rdquo;
+        <div class="pub-venue"><em>Computer Methods and Programs in Biomedicine</em> &mdash; Under Review <span class="pub-badge badge-journal">Journal</span></div>
+      </div>
+      <div class="pub-item">
+        Y. Huang, C. Brierley, <strong>James Pope</strong>, et al., &ldquo;Micro-Auditing for Ransomware Detection in Resource-Constrained Industrial IoT Networks.&rdquo;
+        <div class="pub-venue"><em>EWSN/SPICES 2025</em> &mdash; Accepted</div>
+      </div>
+      <div class="pub-item">
+        Y. Huang, C. Brierley, <strong>James Pope</strong>, et al., &ldquo;Ransomware in Resource-Constrained Industrial IoT Networks: There Actually is a Threat.&rdquo;
+        <div class="pub-venue"><em>DCOSS-IoT 2025</em></div>
+      </div>
+      <div class="pub-item">
+        W. Dennis, <strong>James Pope</strong>, &ldquo;A Framework for Developing Robust ML Models in Harsh Environments: A Review of CNN Design Choices.&rdquo;
+        <div class="pub-venue"><em>ICAART 2025</em></div>
+      </div>
+      <div class="pub-item">
+        Y. Zhang, <strong>James Pope</strong>, &ldquo;Application of Large Language Models and ReAct Prompting in Policy Evidence Collection.&rdquo;
+        <div class="pub-venue"><em>ICAART 2025</em></div>
+      </div>
+      <div class="pub-item">
+        H. Wang, <strong>James Pope</strong>, &ldquo;Double Descent Phenomenon in Liquid Time-Constant, Quantized, and Spiking Neural Networks.&rdquo;
+        <div class="pub-venue"><em>ICAART 2025</em></div>
+      </div>
+      <div class="pub-item">
+        W. Alsolami, R. Santos-Rodriguez, Z. Abdallah, <strong>James Pope</strong>, &ldquo;An Object-Level Entropy-Based Adversarial Attack for Image Privacy.&rdquo;
+        <div class="pub-venue"><em>MLCS @ ECML-PKDD 2025</em></div>
+      </div>
+      <div class="pub-item">
+        H. Erdol, R. Klar, V. Angelakis, <strong>James Pope</strong>, et al., &ldquo;City-Agnostic Demand Prediction: A Graph Attention Approach for Urban Transfer Learning.&rdquo;
+        <div class="pub-venue"><em>IEEE ISC2 2025</em></div>
+      </div>
+    </div>
+
+    <div class="pub-year">2024</div>
+    <div class="pub-list">
+      <div class="pub-item">
+        <strong>James Pope</strong>, T. Spyridopoulos, V. Kumar, et al., &ldquo;Intrusion Detection at the IoT Edge using Federated Learning.&rdquo;
+        <div class="pub-venue"><em>Lecture Notes in Computer Science &mdash; Security and Privacy in Smart Environments</em> (Oct 2024) <span class="pub-badge badge-chapter">Book Chapter</span></div>
+      </div>
+      <div class="pub-item">
+        H. T. Kose, J. Nunez-Yanez, R. Piechocki, <strong>James Pope</strong>, &ldquo;A Survey of Computationally Efficient Graph Neural Networks for Reconfigurable Systems.&rdquo;
+        <div class="pub-venue"><em>MDPI Information 2024</em> <span class="pub-badge badge-journal">Journal</span></div>
+      </div>
+      <div class="pub-item">
+        H. T. Kose, J. Nunez-Yanez, R. Piechocki, <strong>James Pope</strong>, &ldquo;Fully Quantized Graph Convolutional Networks for Embedded Applications.&rdquo;
+        <div class="pub-venue"><em>AccML 2024</em></div>
+      </div>
+      <div class="pub-item">
+        N. Agarwal, <strong>James Pope</strong>, &ldquo;GenGradAttack: Efficient and Robust Targeted Adversarial Attacks Using Genetic Algorithms and Gradient-Based Fine-Tuning.&rdquo;
+        <div class="pub-venue"><em>ICAART 2024</em></div>
+      </div>
+      <div class="pub-item">
+        Y. Guo, <strong>James Pope</strong>, &ldquo;Spatial-Temporal Graph Neural Network for the Detection of Container Escape Events.&rdquo;
+        <div class="pub-venue"><em>ICAART 2024</em></div>
+      </div>
+      <div class="pub-item">
+        H. Y. Sheng, <strong>James Pope</strong>, &ldquo;Content Rating Classification in Fan Fiction using Active Learning and Explainable AI.&rdquo;
+        <div class="pub-venue"><em>ICPRAM 2024</em></div>
+      </div>
+      <div class="pub-item">
+        H. Hodges, <strong>James Pope</strong>, &ldquo;Deep Learning and Feature Selection for Home Mortgage Loan Classification.&rdquo;
+        <div class="pub-venue"><em>ICPRAM 2024</em> &mdash; Candidate for Best Poster <span class="pub-badge badge-award">Best Poster</span></div>
+      </div>
+      <div class="pub-item">
+        N. Prakash, <strong>James Pope</strong>, &ldquo;Privacy Preservation in Image Classification using Seam Doppelganger.&rdquo;
+        <div class="pub-venue"><em>VISAPP 2024</em></div>
+      </div>
+    </div>
+
+    <div class="pub-year">2023</div>
+    <div class="pub-list">
+      <div class="pub-item">
+        <strong>James Pope</strong>, C. Morgan, A. Masullo, I. Craddock, A. Whone, &ldquo;Real World Parkinson&rsquo;s Disease Tremor and Score Prediction using Wearable IMU Sensors.&rdquo;
+        <div class="pub-venue"><em>IEEE Healthcom 2023</em></div>
+      </div>
+      <div class="pub-item">
+        U. Erol, F. Raimondo, <strong>James Pope</strong>, et al., &ldquo;Multi-sensor, multi-device smart building indoor environmental dataset.&rdquo;
+        <div class="pub-venue"><em>Data in Brief Journal</em> &mdash; Open Access <span class="pub-badge badge-journal">Journal</span></div>
+      </div>
+      <div class="pub-item">
+        U. Erol, F. Raimondo, <strong>James Pope</strong>, et al., &ldquo;Evaluating Concept Drift Detectors on Real-World Data.&rdquo;
+        <div class="pub-venue"><em>SPICES 2023</em></div>
+      </div>
+      <div class="pub-item">
+        C. Paschou, F. Raimondo, M. Gugala, D. McEwan, <strong>James Pope</strong>, G. Oikonomou, &ldquo;CRICKET: A practical physical layer key agreement protocol for IoT networks.&rdquo;
+        <div class="pub-venue"><em>IEEE ICC 2023</em></div>
+      </div>
+      <div class="pub-item">
+        I. Mavromatis, A. Sanchez-Mompo, F. Raimondo, <strong>James Pope</strong>, et al., &ldquo;Lightweight Ensemble Framework of Data Drift Detectors for Resource-Constrained IoT Devices.&rdquo;
+        <div class="pub-venue"><em>IEEE CCNC 2023</em></div>
+      </div>
+    </div>
+
+    <div class="pub-year">2022</div>
+    <div class="pub-list">
+      <div class="pub-item">
+        F. Raimondo, U. Erol, S. Gunner, <strong>James Pope</strong>, et al., &ldquo;IoT Key Exchange Performance Analysis.&rdquo;
+        <div class="pub-venue"><em>ACM USWC 2022</em></div>
+      </div>
+      <div class="pub-item">
+        C. Donaldson, <strong>James Pope</strong>, &ldquo;Data Collection and Analysis of Print and Fan Fiction Classification.&rdquo;
+        <div class="pub-venue"><em>ICPRAM 2022</em> &mdash; Candidate for Best Poster <span class="pub-badge badge-award">Best Poster</span></div>
+      </div>
+    </div>
+
+    <div class="pub-year">2021</div>
+    <div class="pub-list">
+      <div class="pub-item">
+        <strong>James Pope</strong>, et al., &ldquo;Container Escape Detection for Edge Devices.&rdquo;
+        <div class="pub-venue"><em>ACM SenSys / DATA 2021</em></div>
+      </div>
+      <div class="pub-item">
+        <strong>James Pope</strong>, M. Terwilliger, &ldquo;Seam Carving for Image Classification Privacy.&rdquo;
+        <div class="pub-venue"><em>ICPRAM 2021</em></div>
+      </div>
+      <div class="pub-item">
+        A. Mahmoudi, L. Hashemi, M. Jasemi, <strong>James Pope</strong>, &ldquo;A comparison on PSO and GA performance in deriving the efficient frontier of stock portfolios.&rdquo;
+        <div class="pub-venue"><em>International Journal of Finance and Economics</em> (Wiley) <span class="pub-badge badge-journal">Journal</span></div>
+      </div>
+    </div>
+
+    <div class="pub-year">2020</div>
+    <div class="pub-list">
+      <div class="pub-item">
+        <strong>James Pope</strong>, M. Terwilliger, D. Taylor, et al., &ldquo;Annotating Documents using Active Learning Methods for a Maintenance Analysis Application.&rdquo;
+        <div class="pub-venue"><em>ACM AIPR 2020</em> &mdash; Open Access</div>
+      </div>
+      <div class="pub-item">
+        R. McConville, G. Archer, I. Craddock, M. Kozlowski, R. Piechocki, <strong>James Pope</strong>, R. Santos-Rodriguez, &ldquo;Vesta: A digital health analytics platform for a smart home in a box.&rdquo;
+        <div class="pub-venue"><em>Future Generation Computer Systems</em> (Elsevier) &mdash; Open Access <span class="pub-badge badge-journal">Journal</span></div>
+      </div>
+      <div class="pub-item">
+        M. Kozlowski, N. Twomey, D. Byrne, <strong>James Pope</strong>, R. Santos-Rodriguez, R. Piechocki, &ldquo;H4LO: Automation Platform for Efficient RF Fingerprinting using SLAM-derived Map and Poses.&rdquo;
+        <div class="pub-venue"><em>IET Radar, Sonar &amp; Navigation</em> <span class="pub-badge badge-journal">Journal</span></div>
+      </div>
+      <div class="pub-item">
+        <strong>James Pope</strong>, J. Connell, D. Powers, X. Fafoutis, D. Taylor, &ldquo;Supervised Machine Learning and Feature Selection for a Document Analysis Application.&rdquo;
+        <div class="pub-venue"><em>ICPRAM 2020</em></div>
+      </div>
+    </div>
+
+    <div class="pub-year">2018&ndash;2019</div>
+    <div class="pub-list">
+      <div class="pub-item">
+        A. Elsts, <strong>James Pope</strong>, X. Fafoutis, R. Piechocki, G. Oikonomou, &ldquo;INSTANT: A TSCH Schedule for Data Collection from Mobile Nodes.&rdquo;
+        <div class="pub-venue"><em>ACM EWSN 2019</em></div>
+      </div>
+      <div class="pub-item">
+        D. Jarchi, <strong>James Pope</strong>, T. K. M. Lee, L. Tamjidi, A. Mirzaei, S. Sanei, &ldquo;A Review on Accelerometry Based Gait Analysis and Emerging Clinical Applications.&rdquo;
+        <div class="pub-venue"><em>IEEE Reviews in Biomedical Engineering</em> 2018 <span class="pub-badge badge-journal">Journal</span></div>
+      </div>
+      <div class="pub-item">
+        C. Beach, S. Krachunov, <strong>James Pope</strong>, X. Fafoutis, et al., &ldquo;An Ultra Low Power Personalizable Wrist Worn ECG Monitor Integrated With IoT Infrastructure.&rdquo;
+        <div class="pub-venue"><em>IEEE Access</em> 2018 <span class="pub-badge badge-journal">Journal</span></div>
+      </div>
+      <div class="pub-item">
+        <strong>James Pope</strong>, A. Vafeas, A. Elsts, G. Oikonomou, R. Piechocki, I. Craddock, &ldquo;An Accelerometer Lossless Compression Algorithm and Energy Analysis for IoT Devices.&rdquo;
+        <div class="pub-venue"><em>IEEE WCNC 2018</em></div>
+      </div>
+      <div class="pub-item">
+        X. Fafoutis, L. Marchegiani, A. Elsts, <strong>James Pope</strong>, R. Santos-Rodriguez, I. Craddock, &ldquo;Extending the battery lifetime of wearable sensors with embedded machine learning.&rdquo;
+        <div class="pub-venue"><em>IEEE WF-IoT 2018</em></div>
+      </div>
+      <div class="pub-item">
+        <strong>James Pope</strong>, R. McConville, M. Kozlowski, et al., &ldquo;SPHERE in a Box: Practical and Scalable EurValve Activity Monitoring Smart Home Kit.&rdquo;
+        <div class="pub-venue"><em>IEEE LCN 2017</em></div>
+      </div>
+    </div>
+
+    <div class="pub-year">2010&ndash;2016</div>
+    <div class="pub-list">
+      <div class="pub-item">
+        <strong>James Pope</strong>, R. Simon, &ldquo;CREST: An Epoch-Oriented Routing Control Plane for Low-Power and Lossy Networks.&rdquo;
+        <div class="pub-venue"><em>IEEE SenseAPP 2013</em> &mdash; <strong>Best Paper Award</strong> (AR 25%) <span class="pub-badge badge-award">Best Paper</span></div>
+      </div>
+      <div class="pub-item">
+        <strong>James Pope</strong>, R. Simon, &ldquo;The Impact of Packet Fragmentation and Reassembly in Resource Constrained Wireless Networks.&rdquo;
+        <div class="pub-venue"><em>Journal of Computing and Information Technology (CIT)</em> 2013 <span class="pub-badge badge-journal">Journal</span></div>
+      </div>
+      <div class="pub-item">
+        <strong>James Pope</strong>, R. Simon, &ldquo;Distributed Algorithm for Maximizing Linear Tree Density for One-to-Many Wireless Communication.&rdquo;
+        <div class="pub-venue"><em>ACM PE-WASUN 2016</em></div>
+      </div>
+      <div class="pub-item">
+        <strong>James Pope</strong>, R. Simon, &ldquo;Efficient One-to-Many Broadcasting for Resource-constrained Wireless Networks.&rdquo;
+        <div class="pub-venue"><em>IEEE LCN 2015</em></div>
+      </div>
+      <div class="pub-item">
+        <strong>James Pope</strong>, P. Orsinger, M. Fisher, &ldquo;Inter-Cloud Data Persistence in DIL Networks.&rdquo;
+        <div class="pub-venue"><em>IEEE CloudNA 2015</em></div>
+      </div>
+      <div class="pub-item">
+        <strong>James Pope</strong>, R. Simon, &ldquo;Managing Internet Protocol Routing for Low Power Lossy Networks.&rdquo;
+        <div class="pub-venue"><em>IEEE Globecom 2010</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPERVISION -->
+<section id="supervision" class="alt">
+  <div class="container">
+    <div class="section-label">Graduate Training</div>
+    <h2>PhD Supervision</h2>
+    <div class="students-grid">
+      <div class="student-card">
+        <h3>Habib Taha Kose</h3>
+        <div class="student-dept">Electrical &amp; Electronic Engineering &middot; 2022&ndash;Present</div>
+        <div class="student-title">Applications and Hardware Acceleration of Graph Neural Networks</div>
+        <span class="student-role">Main Supervisor</span>
+      </div>
+      <div class="student-card">
+        <h3>Dina Molnar</h3>
+        <div class="student-dept">Digital Health and Care &middot; 2024&ndash;Present</div>
+        <div class="student-title">Behavioural monitoring of Parkinson&rsquo;s patients in real world environments</div>
+        <span class="student-role">Main Supervisor</span>
+      </div>
+      <div class="student-card">
+        <h3>Wasaif Alsolami</h3>
+        <div class="student-dept">Computer Science &middot; 2025&ndash;Present</div>
+        <div class="student-title">Advancing Privacy and Security in AI Models: Adversarial Attacks and Defensive Mechanisms</div>
+        <span class="student-role">Main Supervisor</span>
+      </div>
+      <div class="student-card">
+        <h3>Aileen Wang</h3>
+        <div class="student-dept">Electrical &amp; Electronic Engineering &middot; 2023&ndash;Present</div>
+        <div class="student-title">Federated Learning for Wireless Communications</div>
+        <span class="student-role">Second Supervisor</span>
+      </div>
+      <div class="student-card">
+        <h3>Tim Sanmoogan</h3>
+        <div class="student-dept">Computer Science &middot; 2023&ndash;Present</div>
+        <div class="student-title">Graph and Diffusion Models for Cell Tower Placement</div>
+        <span class="student-role">Third Supervisor</span>
+      </div>
+      <div class="student-card">
+        <h3>Ryan Beck</h3>
+        <div class="student-dept">Digital Health and Care &middot; 2024&ndash;Present</div>
+        <div class="student-title">Enhancing Wearable Data as Digital Biomarkers of Mood in Young Adults</div>
+        <span class="student-role">Second Supervisor</span>
+      </div>
+      <div class="student-card">
+        <h3>Haoxiang Li</h3>
+        <div class="student-dept">Electrical &amp; Electronic Engineering &middot; 2025&ndash;Present</div>
+        <div class="student-title">Countering Harms caused by Ransomware in the Internet of Things</div>
+        <span class="student-role">Second Supervisor</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="container">
+    <div class="section-label">Recognition</div>
+    <h2>Awards, Certifications &amp; Affiliations</h2>
+    <div class="awards-list">
+      <div class="award-item">
+        <div class="award-icon">&#128251;</div>
+        <div class="award-body">
+          <strong>Featured on BBC Inside Science</strong> &mdash; discussed AI research
+          <div class="award-date">7 August 2025</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">&#128240;</div>
+        <div class="award-body">
+          <strong>Featured in The Guardian</strong> &mdash; &ldquo;UK switched on AI supercomputer for pioneering AI research&rdquo;
+          <div class="award-date">17 July 2025</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">&#9729;&#65039;</div>
+        <div class="award-body">
+          <strong>AWS Certified Cloud Practitioner</strong> &mdash; valid until July 2026
+          <div class="award-date">Active</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">&#127891;</div>
+        <div class="award-body">
+          <strong>Fellow, Higher Education Academy</strong> &mdash; CREATEFHEA, PR281976
+          <div class="award-date">January 2024</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">&#128225;</div>
+        <div class="award-body">
+          <strong>IEEE Senior Member</strong>
+          <div class="award-date">Since 2010</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">&#127942;</div>
+        <div class="award-body">
+          <strong>Best Paper Award &mdash; IEEE SenseAPP 2013</strong> &mdash; &ldquo;CREST: An Epoch-Oriented Routing Control Plane&rdquo; (AR 25%)
+          <div class="award-date">2013</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">&#128274;</div>
+        <div class="award-body">
+          <strong>CompTIA Security+ Certified</strong>
+          <div class="award-date">August 2007</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">&#127894;</div>
+        <div class="award-body">
+          <strong>Bronze Star for Meritorious Service (&times;2)</strong> &mdash; United States Army, Company Commander
+          <div class="award-date">Iraq (2005) &middot; Afghanistan (2003)</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">&#934;</div>
+        <div class="award-body">
+          <strong>The Honor Society of Phi Kappa Phi</strong>
+          <div class="award-date">September 2011</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section id="media" class="alt">
+  <div class="container">
+    <div class="section-label">Press</div>
+    <h2>Media Coverage</h2>
+    <div class="media-cards">
+      <div class="media-card">
+        <div class="media-logo">&#128251;</div>
+        <div class="media-body">
+          <a href="https://www.bbc.co.uk/sounds/play/m002gr01" target="_blank" rel="noopener">BBC Inside Science</a>
+          <p style="font-size:.88rem;margin-top:.3rem;">Featured discussing AI research and applications.</p>
+          <div class="media-date">7 August 2025</div>
+        </div>
+      </div>
+      <div class="media-card">
+        <div class="media-logo">&#128240;</div>
+        <div class="media-body">
+          <span style="font-weight:600;color:var(--navy);">The Guardian</span>
+          <p style="font-size:.88rem;margin-top:.3rem;">&ldquo;UK switched on AI supercomputer for pioneering AI research.&rdquo;</p>
+          <div class="media-date">17 July 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Get in Touch</div>
+    <h2>Contact</h2>
+    <div class="contact-grid">
+      <a class="contact-item" href="mailto:james.h.pope8@gmail.com">
+        <span class="contact-icon">&#9993;</span>
+        <span>james.h.pope8@gmail.com</span>
+      </a>
+      <a class="contact-item" href="https://www.linkedin.com/in/jpope8/" target="_blank" rel="noopener">
+        <span class="contact-icon">in</span>
+        <span>linkedin.com/in/jpope8</span>
+      </a>
+      <a class="contact-item" href="https://github.com/jpope8" target="_blank" rel="noopener">
+        <span class="contact-icon">&#60;/&#62;</span>
+        <span>github.com/jpope8</span>
+      </a>
+      <a class="contact-item" href="https://orcid.org/0000-0003-2656-363X" target="_blank" rel="noopener">
+        <span class="contact-icon">&#9398;</span>
+        <span>ORCID 0000-0003-2656-363X</span>
+      </a>
+      <a class="contact-item" href="https://research-information.bris.ac.uk/en/persons/james-pope" target="_blank" rel="noopener">
+        <span class="contact-icon">&#127979;</span>
+        <span>University of Bristol Profile</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Dr. James Pope &middot; Senior Lecturer in Data Science &middot; University of Bristol</p>
+</footer>
+
+</body>
+</html>
