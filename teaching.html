@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teaching — Dr. James Pope</title>
+  <meta name="description" content="Teaching portfolio of Dr. James Pope — courses taught at the University of Bristol and previous institutions." />
+
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon-180x180.png" />
+  <link rel="manifest" href="images/manifest.json" />
+
+  <style>
+    :root {
+      --navy:   #0d1b2a;
+      --blue:   #1e3a5f;
+      --accent: #2a7ab8;
+      --light:  #e8f1f8;
+      --text:   #1a1a2e;
+      --muted:  #5a6a7a;
+      --white:  #ffffff;
+      --card:   #f7fafd;
+      --border: #d0dce8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem;
+      height: 56px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.35);
+    }
+    .nav-brand {
+      color: var(--white); font-weight: 700; font-size: 1rem;
+      text-decoration: none; letter-spacing: .02em;
+    }
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,.75);
+      text-decoration: none; font-size: .85rem;
+      transition: color .2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: var(--white);
+      padding: 3.5rem 2rem 3rem;
+      text-align: center;
+    }
+    .hero-avatar {
+      width: 80px; height: 80px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.45);
+      object-fit: cover;
+      display: block; margin: 0 auto 1.2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,.4);
+    }
+    .hero h1 { font-size: 2rem; font-weight: 700; letter-spacing: -.02em; }
+    .hero .subtitle { font-size: 1rem; color: rgba(255,255,255,.7); margin-top: .4rem; }
+    .hero-back {
+      display: inline-flex; align-items: center; gap: .35rem;
+      margin-top: 1.4rem;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.3);
+      color: var(--white); text-decoration: none;
+      padding: .4rem 1rem; border-radius: 6px; font-size: .82rem;
+      transition: background .2s;
+    }
+    .hero-back:hover { background: rgba(255,255,255,.2); }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 3.5rem 0 2.5rem; }
+    section.alt { background: var(--card); }
+
+    .section-label {
+      font-size: .7rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: .4rem;
+    }
+    h2 {
+      font-size: 1.45rem; font-weight: 700; color: var(--navy);
+      margin-bottom: 1.6rem; padding-bottom: .55rem;
+      border-bottom: 2px solid var(--border);
+      display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: .5rem;
+    }
+    .inst-meta { font-size: .82rem; font-weight: 400; color: var(--muted); }
+
+    /* ── COURSE GRID ── */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .course-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.15rem 1.25rem;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .course-card:hover { box-shadow: 0 5px 18px rgba(0,0,0,.09); transform: translateY(-2px); }
+    .course-header { display: flex; align-items: flex-start; justify-content: space-between; gap: .5rem; margin-bottom: .5rem; }
+    .course-code {
+      font-size: .72rem; font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase; background: var(--light); color: var(--accent);
+      border-radius: 4px; padding: .15rem .55rem; flex-shrink: 0;
+    }
+    .course-type {
+      font-size: .7rem; color: var(--muted); text-align: right;
+      flex-shrink: 0;
+    }
+    .course-title { font-size: .97rem; font-weight: 700; color: var(--navy); margin-bottom: .35rem; }
+    .course-desc { font-size: .86rem; color: var(--text); line-height: 1.55; }
+    .course-semesters { margin-top: .65rem; display: flex; flex-wrap: wrap; gap: .35rem; }
+    .sem-tag {
+      font-size: .72rem; background: var(--card); border: 1px solid var(--border);
+      color: var(--muted); border-radius: 4px; padding: .1rem .45rem;
+    }
+    .director-badge {
+      display: inline-block; font-size: .7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .05em;
+      background: #fdeede; color: #b05a00;
+      border-radius: 4px; padding: .1rem .45rem; margin-right: .3rem;
+    }
+
+    /* ── SUMMARY ── */
+    .summary-bar {
+      background: var(--accent);
+      display: flex; flex-wrap: wrap;
+    }
+    .sum-stat {
+      flex: 1; min-width: 130px; text-align: center;
+      padding: 1.2rem 1rem;
+      border-right: 1px solid rgba(255,255,255,.2);
+      color: var(--white);
+    }
+    .sum-stat:last-child { border-right: none; }
+    .sum-num   { font-size: 1.8rem; font-weight: 700; display: block; }
+    .sum-label { font-size: .72rem; opacity: .85; text-transform: uppercase; letter-spacing: .06em; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,.5);
+      text-align: center; padding: 1.8rem; font-size: .82rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.6rem; }
+      .nav-links { gap: .9rem; }
+      .nav-links a { font-size: .78rem; }
+      h2 { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">Dr. James Pope</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#experience">Experience</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#publications">Publications</a></li>
+    <li><a href="index.html#supervision">Students</a></li>
+    <li><a href="teaching.html" class="active">Teaching</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <img class="hero-avatar" src="images/JamesPope.png" alt="Dr. James Pope" />
+  <h1>Teaching</h1>
+  <p class="subtitle">Dr. James Pope &middot; University of Bristol &amp; Previous Institutions</p>
+  <a class="hero-back" href="index.html">&#8592; Back to profile</a>
+</header>
+
+<!-- SUMMARY STATS -->
+<div class="summary-bar">
+  <div class="sum-stat"><span class="sum-num">4</span><span class="sum-label">Institutions</span></div>
+  <div class="sum-stat"><span class="sum-num">27</span><span class="sum-label">Distinct Courses</span></div>
+  <div class="sum-stat"><span class="sum-num">43</span><span class="sum-label">Course Offerings</span></div>
+  <div class="sum-stat"><span class="sum-num">10+</span><span class="sum-label">Years Teaching</span></div>
+</div>
+
+<!-- UNIVERSITY OF BRISTOL -->
+<section id="bristol">
+  <div class="container">
+    <div class="section-label">2022 &ndash; Present</div>
+    <h2>University of Bristol <span class="inst-meta">School of Engineering Mathematics and Technology &middot; Bristol, UK</span></h2>
+    <div class="course-grid">
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">EMATM0048</span>
+          <span class="course-type">Graduate &middot; Unit Director</span>
+        </div>
+        <div class="course-title">Software Development, Programming, and Algorithms</div>
+        <div class="course-desc">MSc unit teaching Python software development: core language features, OOP, recursion, algorithmic complexity, search and sorting, testing, version control, and scientific libraries. Includes coursework-based software development projects.</div>
+        <div class="course-semesters">
+          <span class="director-badge">Unit Director</span>
+          <span class="sem-tag">2022&ndash;23</span>
+          <span class="sem-tag">2023&ndash;24</span>
+          <span class="sem-tag">2024&ndash;25</span>
+          <span class="sem-tag">2025&ndash;26</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">EMATM0049</span>
+          <span class="course-type">Graduate</span>
+        </div>
+        <div class="course-title">Technology, Innovation, Business, and Society</div>
+        <div class="course-desc">Examines technological innovation and its business and societal contexts, covering disruptive innovation, diffusion and adoption, open innovation models, and technology strategy. Includes coursework-based technology and business analysis.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">2022&ndash;23</span>
+          <span class="sem-tag">2023&ndash;24</span>
+          <span class="sem-tag">2024&ndash;25</span>
+          <span class="sem-tag">2025&ndash;26</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">EMATM0050</span>
+          <span class="course-type">Graduate &middot; Unit Director</span>
+        </div>
+        <div class="course-title">Data Science Mini-Project</div>
+        <div class="course-desc">MSc group project unit involving supervised applied data science projects with formative and summative presentations, written reports, project schedules, and industry-style problem briefs. Unit Director in 2022&ndash;23.</div>
+        <div class="course-semesters">
+          <span class="director-badge">Unit Director</span>
+          <span class="sem-tag">2022&ndash;23</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">DSE</span>
+          <span class="course-type">Graduate</span>
+        </div>
+        <div class="course-title">Data Science Enrichment</div>
+        <div class="course-desc">Applied enrichment for MSc students: building ML models from public or partner datasets, deploying results in JavaScript applications, LaTeX documentation, version control, project planning, and peer-to-peer presentations.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">2022&ndash;23</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">TIBS-SS</span>
+          <span class="course-type">Short course</span>
+        </div>
+        <div class="course-title">TIBS Summer School &mdash; Wuhan / Huazhong Cohort</div>
+        <div class="course-desc">Compressed summer-school version of Technology, Innovation, Business, and Society for a Chinese cohort, covering disruptive innovation, post-innovation adoption and diffusion, and open innovation.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Summer 2023</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">AMD-TIBS</span>
+          <span class="course-type">Short course</span>
+        </div>
+        <div class="course-title">AMD-TIBS Summer School</div>
+        <div class="course-desc">Short summer-school unit for an international cohort on technology innovation, business context, and societal implications, delivered in a compressed format for diverse applied contexts.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Summer 2025</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- UNIVERSITY OF NORTH ALABAMA -->
+<section id="una" class="alt">
+  <div class="container">
+    <div class="section-label">2020 &ndash; 2021</div>
+    <h2>University of North Alabama <span class="inst-meta">Department of CS &amp; IS &middot; Florence, Alabama</span></h2>
+    <div class="course-grid">
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">CIS344</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">IT Infrastructure</div>
+        <div class="course-desc">Introduced IT infrastructure and data communications: terminology, components, communication protocols, network architectures, network security, network operating systems, and management of communications networks.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Fall 2020</span>
+          <span class="sem-tag">Spring 2021</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">CS135</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">Computer Skills for Problem Solving</div>
+        <div class="course-desc">Used personal computers as problem-solving tools; developed analytical thinking, abstraction, problem specification, interpretation of results, productivity software, Internet use, and programming principles.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Fall 2020</span>
+          <span class="sem-tag">Spring 2021</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">CS245</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">Introduction to Discrete Structures</div>
+        <div class="course-desc">Covered sets, functions and relations, basic logic, proof techniques, counting, graphs and trees, discrete probability, and number systems with applications to computer science.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Fall 2020</span>
+          <span class="sem-tag">Spring 2021</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- UNIVERSITY OF MONTEVALLO -->
+<section id="montevallo">
+  <div class="container">
+    <div class="section-label">2018 &ndash; 2020</div>
+    <h2>University of Montevallo <span class="inst-meta">Department of Computer Informatics &middot; Montevallo, Alabama</span></h2>
+    <div class="course-grid">
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">INFM241</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">Introduction to Informatics and Computing</div>
+        <div class="course-desc">Introduced foundational computing concepts, programming with Python and Java, problem solving, and the role of information systems. Included assignments, quizzes, and student submissions.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Fall 2018</span>
+          <span class="sem-tag">Spring 2019</span>
+          <span class="sem-tag">Spring 2020</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">INFM242</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">Logical Foundations for Informatics</div>
+        <div class="course-desc">Discrete mathematics and logical reasoning for computing: proof techniques, sets, relations, graph concepts, trees, and algorithms. Included homework, slides, and exams.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Fall 2018</span>
+          <span class="sem-tag">Fall 2019</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">INFM345</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">Computer Programming I</div>
+        <div class="course-desc">Introduced structured and object-oriented programming using Java: fundamentals, classes, methods, arrays, inheritance, and exceptions with applied problem-solving assignments.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Fall 2018</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">INFM346</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">Computer Programming II</div>
+        <div class="course-desc">Advanced Java development: data access, application structure, software design, database integration, and application exercises building on Programming I.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Spring 2019</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">INFM347</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">Human Computer Interaction</div>
+        <div class="course-desc">User-centred design, interface evaluation, interaction principles, and project-based work on usable computing systems. Included assignments, projects, guest lectures, and quizzes.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Spring 2019</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">INFM348</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">Information Representation</div>
+        <div class="course-desc">Database concepts and information modelling: relational data, SQL, database tooling, ORM, and application-level data access with assignments and quizzes.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Spring 2019</span>
+          <span class="sem-tag">Fall 2019</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">INFM350</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">Database &amp; Applications Security</div>
+        <div class="course-desc">Information security topics including database security, telecommunications security, risk assessment, policy, authentication, cryptography, physical security, and countermeasures.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Spring 2020</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">INFM370</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">Data Structures and Algorithms I</div>
+        <div class="course-desc">Algorithmic problem solving and core data structures. Included assignments, projects, code, lectures, quizzes, and textbook-based exercises.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Fall 2019</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">INFM371</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">Data Structures and Algorithms II</div>
+        <div class="course-desc">Advanced data structures, algorithm analysis, and programming assignments building on DSA I. Included lectures, submissions, and final assessment materials.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Spring 2020</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">INFM409</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">Internship in Informatics</div>
+        <div class="course-desc">Supervised professional experience in informatics supporting applied work, professional reporting, and faculty oversight of internship activity.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Fall 2019</span>
+          <span class="sem-tag">Spring 2020</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">INFM450</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">Data Analysis and Mining I</div>
+        <div class="course-desc">Data mining and machine learning: data preparation, classification, clustering, evaluation, and applied analysis using Weka labs, datasets, and statistical learning resources.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Fall 2019</span>
+          <span class="sem-tag">Summer 2020</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">INFM455</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">Information Infrastructure I</div>
+        <div class="course-desc">Infrastructure concepts for information systems including networking, systems architecture, and applied computing infrastructure topics.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Fall 2019</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">INFM456</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">Information Infrastructure II</div>
+        <div class="course-desc">Extended infrastructure and data-oriented computing topics with applied programming, ML resources, and analysis work.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Spring 2020</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">INFM171</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">Social Informatics</div>
+        <div class="course-desc">The relationship between information technology and society: ethical, legal, professional, and social issues in computing with research papers, risk assessment activities, and term papers.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Fall 2018</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">MIS161</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">Introduction to Computers</div>
+        <div class="course-desc">Practical computer literacy, productivity software, computing concepts, and problem solving with technology. Spring 2020 section delivered online.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Fall 2019</span>
+          <span class="sem-tag">Spring 2020</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GEORGE MASON UNIVERSITY -->
+<section id="gmu" class="alt">
+  <div class="container">
+    <div class="section-label">2014 &ndash; 2016</div>
+    <h2>George Mason University <span class="inst-meta">Department of Computer Science &middot; Fairfax, Virginia &middot; Adjunct Professor</span></h2>
+    <div class="course-grid">
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">IT206</span>
+          <span class="course-type">Undergraduate</span>
+        </div>
+        <div class="course-title">Object-Oriented Techniques for IT Problem Solving</div>
+        <div class="course-desc">Object-oriented analysis and design, UML, classes, inheritance, polymorphism, exception handling, data modelling, testing, debugging, and implementation in Java for business and IT problem solving.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Fall 2014</span>
+          <span class="sem-tag">Spring 2015</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-header">
+          <span class="course-code">INFS519</span>
+          <span class="course-type">Graduate</span>
+        </div>
+        <div class="course-title">Program Design and Data Structures</div>
+        <div class="course-desc">Dynamic lists, linked lists, stacks and queues, trees, graphs, generic classes, recursion, searching and sorting, and hashing. Delivered via Java programming assignments, midterm, and final examinations.</div>
+        <div class="course-semesters">
+          <span class="sem-tag">Fall 2015</span>
+          <span class="sem-tag">Spring 2016</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Dr. James Pope &middot; Senior Lecturer in Data Science &middot; University of Bristol &middot; <a href="index.html" style="color:rgba(255,255,255,.5)">Back to profile</a></p>
+</footer>
+
+</body>
+</html>
