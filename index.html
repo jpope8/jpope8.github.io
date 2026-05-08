@@ -174,9 +174,17 @@
       letter-spacing: .04em; text-transform: uppercase;
       padding: .1rem .5rem; border-radius: 4px; margin-left: .5rem; vertical-align: middle;
     }
-    .badge-journal { background: #dff0e8; color: #1a7a4a; }
+    /* .badge-journal { background: #dff0e8; color: #1a7a4a; }
     .badge-chapter { background: #fdeede; color: #b05a00; }
-    .badge-award   { background: #fde8e8; color: #c0392b; }
+    .badge-award   { background: #fde8e8; color: #c0392b; } */
+
+
+    /* Types */
+    .badge-journal    { background: #e3f2fd; color: #0d47a1; }
+    .badge-conference { background: #e8f5e9; color: #1b5e20; }
+    .badge-workshop   { background: #fff3e0; color: #e65100; }
+    .badge-chapter    { background: #f3e5f5; color: #4a148c; }
+    .badge-award      { background: #fff8e1; color: #ff6f00; }
 
     /* ── SUPERVISION ── */
     .students-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
@@ -297,7 +305,7 @@
     <h2>About</h2>
     <p class="about-text">
       Senior Lecturer in Data Science at the University of Bristol's School of Engineering Mathematics and Technology.
-      With over three decades of engineering experience spanning academia, defence industry, and US Army service,
+      With over three decades of engineering experience spanning academia, industry, and military service,
       my research sits at the intersection of machine learning, edge computing, and real-world sensing systems.
       I hold a Ph.D. in Information Technology from George Mason University and have authored 50 peer-reviewed
       works including 10 journal papers, 38 conference papers, and 2 book chapters.
@@ -468,21 +476,41 @@
 <section id="publications">
   <div class="container">
     <div class="section-label">Scholarly Output</div>
-    <h2>Publications <small style="font-size:.8rem;color:var(--muted);font-weight:400">(2 Book Chapters &middot; 10 Journal &middot; 38 Conference)</small></h2>
+    <h2>Publications <small style="font-size:.8rem;color:var(--muted);font-weight:400">(2 Book Chapters &middot; 10 Journal &middot; 38 Conference/Workshop)</small></h2>
 
     <div class="pub-year">2026</div>
     <div class="pub-list">
       <div class="pub-item">
+        J. Pope, <strong>James Pope</strong>, &ldquo;Synthetic Data Knowledge Distillation of Large Language Models for Protection and Controls Substation Design.&rdquo;
+        <div class="pub-venue"><em>International Conference on Power and Energy Systems Engineering (CPESE 2026)</em> &mdash; Under Review <span class="pub-badge badge-conference">Conference</span></div>
+      </div>
+      <!-- <div class="pub-item">
+        P. Kumar, R. Shakya, A. Pinto, S. Koerner, T. Rajkumar, <strong>James Pope</strong>, M. J. Galvez Trigo, C. Angell, A. Al-Nuaimi, M. Loizou, K. O’Hara, &ldquo;User-Centred Co-design of Artificial Intelligence (AI) Supported Personalised Exercise Rehabilitation for People with Stroke.&rdquo;
+        <div class="pub-venue"><span class="pub-badge badge-journal">Journal</span> <em>Disability and Rehabilitation</em> &mdash; Under Review </div>
+      </div> -->
+      <!-- <div class="pub-item">
         <strong>James Pope</strong>, Y. Huang, Y. Wang, H. Li, C. Brierley, B. Arief, G. Oikonomou, &ldquo;Contrastive Representation Learning for IoT Packet Embeddings.&rdquo;
-        <div class="pub-venue"><em>IEEE Journal of Selected Areas in Sensors (JSAS)</em> &mdash; Under Review <span class="pub-badge badge-journal">Journal</span></div>
+        <div class="pub-venue"><em>ACM Transactions on Internet of Things (TIOT)</em> &mdash; Under Review <span class="pub-badge badge-journal">Journal</span></div>
+      </div> -->
+      <div class="pub-item">
+        V. Varshani, Y. Huang, H. Li, Y. Wang, C. Brierley, B. Arief, G. Oikonomou, <strong>James Pope</strong>, &ldquo;Unsupervised Machine Learning for Anomaly Detection in Thread IoT Networks.&rdquo;
+        <div class="pub-venue"><em>ISIoT 2026 Workshop (DCOSS-IoT)</em> &mdash; Accepted <span class="pub-badge badge-workshop">Workshop</span></div>
+      </div>
+      <div class="pub-item">
+        C. Brierley, Y. Huang, Y. Wang, <strong>James Pope</strong>, G. Oikonomou, B. Arief, &ldquo;Turbulence: Ransomware Proof of Concept for Resource-Constrained IoT Devices.&rdquo;
+        <div class="pub-venue"><em>DIMVA 2026 (Conference on Detection of Intrusions and Malware &amp; Vulnerability Assessment)</em> &mdash; Accepted <span class="pub-badge badge-conference">Conference</span></div>
       </div>
       <div class="pub-item">
         T. Rajkumar, S. Koerner, A. Pinto, K. O&rsquo;Hara, <strong>James Pope</strong>, et al., &ldquo;Personalised Stroke Rehabilitation: An AI Pipeline for Exercise Programmes Using a Co-Designed Decision Support Tablet Application.&rdquo;
-        <div class="pub-venue"><em>HEALTHINF 2026</em> &mdash; Accepted</div>
+        <div class="pub-venue"><em>HEALTHINF 2026 <span class="pub-badge badge-conference">Conference</span></div>
       </div>
       <div class="pub-item">
         P. Singh, Y. Huang, Y. Wang, H. Li, G. Oikonomou, <strong>James Pope</strong>, &ldquo;Multi-Modal Model for Embedding Network and Audit Data for IoT Anomaly Detection.&rdquo;
-        <div class="pub-venue"><em>ICISSP 2026</em> &mdash; Accepted</div>
+        <div class="pub-venue"><em>ICISSP 2026 <span class="pub-badge badge-conference">Conference</span></div>
+      </div>
+      <div class="pub-item">
+        M. Bicer, <strong>James Pope</strong>, L. Rochester, S. Del Din, L. Alcock, &ldquo;Neural Network-Based Granular Activity Recognition from Accelerometers.&rdquo;
+        <div class="pub-venue"><em>Sensors</em> 2026 <span class="pub-badge badge-journal">Journal</span></div>
       </div>
     </div>
 
@@ -492,37 +520,37 @@
         W. Dennis, <strong>James Pope</strong>, &ldquo;Robust Machine Learning for Harsh Environments: A Framework and Evaluation of Key Architectural Choices.&rdquo;
         <div class="pub-venue">Invited Book Chapter, <em>Springer LNAI</em> &mdash; Accepted <span class="pub-badge badge-chapter">Book Chapter</span></div>
       </div>
-      <div class="pub-item">
+      <!-- <div class="pub-item">
         M. Bicer, <strong>James Pope</strong>, L. Rochester, S. Del Din, L. Alcock, &ldquo;Neural Network-Based Granular Activity Recognition from Accelerometers.&rdquo;
-        <div class="pub-venue"><em>Computer Methods and Programs in Biomedicine</em> &mdash; Under Review <span class="pub-badge badge-journal">Journal</span></div>
-      </div>
+        <div class="pub-venue"><em>Computer Methods and Programs in Biomedicine <span class="pub-badge badge-journal">Journal</span></div>
+      </div> -->
       <div class="pub-item">
         Y. Huang, C. Brierley, <strong>James Pope</strong>, et al., &ldquo;Micro-Auditing for Ransomware Detection in Resource-Constrained Industrial IoT Networks.&rdquo;
-        <div class="pub-venue"><em>EWSN/SPICES 2025</em> &mdash; Accepted</div>
+        <div class="pub-venue"><em>EWSN/SPICES 2025 <span class="pub-badge badge-workshop">Workshop</span></div>
       </div>
       <div class="pub-item">
         Y. Huang, C. Brierley, <strong>James Pope</strong>, et al., &ldquo;Ransomware in Resource-Constrained Industrial IoT Networks: There Actually is a Threat.&rdquo;
-        <div class="pub-venue"><em>DCOSS-IoT 2025</em></div>
+        <div class="pub-venue"><em>DCOSS-IoT 2025</em> <span class="pub-badge badge-workshop">Workshop</span></div>
       </div>
       <div class="pub-item">
         W. Dennis, <strong>James Pope</strong>, &ldquo;A Framework for Developing Robust ML Models in Harsh Environments: A Review of CNN Design Choices.&rdquo;
-        <div class="pub-venue"><em>ICAART 2025</em></div>
+        <div class="pub-venue"><em>ICAART 2025</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
       <div class="pub-item">
         Y. Zhang, <strong>James Pope</strong>, &ldquo;Application of Large Language Models and ReAct Prompting in Policy Evidence Collection.&rdquo;
-        <div class="pub-venue"><em>ICAART 2025</em></div>
+        <div class="pub-venue"><em>ICAART 2025</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
       <div class="pub-item">
         H. Wang, <strong>James Pope</strong>, &ldquo;Double Descent Phenomenon in Liquid Time-Constant, Quantized, and Spiking Neural Networks.&rdquo;
-        <div class="pub-venue"><em>ICAART 2025</em></div>
+        <div class="pub-venue"><em>ICAART 2025</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
       <div class="pub-item">
         W. Alsolami, R. Santos-Rodriguez, Z. Abdallah, <strong>James Pope</strong>, &ldquo;An Object-Level Entropy-Based Adversarial Attack for Image Privacy.&rdquo;
-        <div class="pub-venue"><em>MLCS @ ECML-PKDD 2025</em></div>
+        <div class="pub-venue"><em>MLCS @ ECML-PKDD 2025</em> <span class="pub-badge badge-workshop">Workshop</span></div>
       </div>
       <div class="pub-item">
         H. Erdol, R. Klar, V. Angelakis, <strong>James Pope</strong>, et al., &ldquo;City-Agnostic Demand Prediction: A Graph Attention Approach for Urban Transfer Learning.&rdquo;
-        <div class="pub-venue"><em>IEEE ISC2 2025</em></div>
+        <div class="pub-venue"><em>IEEE ISC2 2025</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
     </div>
 
@@ -538,27 +566,27 @@
       </div>
       <div class="pub-item">
         H. T. Kose, J. Nunez-Yanez, R. Piechocki, <strong>James Pope</strong>, &ldquo;Fully Quantized Graph Convolutional Networks for Embedded Applications.&rdquo;
-        <div class="pub-venue"><em>AccML 2024</em></div>
+        <div class="pub-venue"><em>AccML 2024</em> <span class="pub-badge badge-workshop">Workshop</span></div>
       </div>
       <div class="pub-item">
         N. Agarwal, <strong>James Pope</strong>, &ldquo;GenGradAttack: Efficient and Robust Targeted Adversarial Attacks Using Genetic Algorithms and Gradient-Based Fine-Tuning.&rdquo;
-        <div class="pub-venue"><em>ICAART 2024</em></div>
+        <div class="pub-venue"><em>ICAART 2024</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
       <div class="pub-item">
         Y. Guo, <strong>James Pope</strong>, &ldquo;Spatial-Temporal Graph Neural Network for the Detection of Container Escape Events.&rdquo;
-        <div class="pub-venue"><em>ICAART 2024</em></div>
+        <div class="pub-venue"><em>ICAART 2024</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
       <div class="pub-item">
         H. Y. Sheng, <strong>James Pope</strong>, &ldquo;Content Rating Classification in Fan Fiction using Active Learning and Explainable AI.&rdquo;
-        <div class="pub-venue"><em>ICPRAM 2024</em></div>
+        <div class="pub-venue"><em>ICPRAM 2024</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
       <div class="pub-item">
         H. Hodges, <strong>James Pope</strong>, &ldquo;Deep Learning and Feature Selection for Home Mortgage Loan Classification.&rdquo;
-        <div class="pub-venue"><em>ICPRAM 2024</em> &mdash; Candidate for Best Poster <span class="pub-badge badge-award">Best Poster</span></div>
+        <div class="pub-venue"><em>ICPRAM 2024</em> <span class="pub-badge badge-conference">Conference</span> <span class="pub-badge badge-award">Candidate Best Poster</span></div>
       </div>
       <div class="pub-item">
         N. Prakash, <strong>James Pope</strong>, &ldquo;Privacy Preservation in Image Classification using Seam Doppelganger.&rdquo;
-        <div class="pub-venue"><em>VISAPP 2024</em></div>
+        <div class="pub-venue"><em>VISAPP 2024</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
     </div>
 
@@ -566,7 +594,7 @@
     <div class="pub-list">
       <div class="pub-item">
         <strong>James Pope</strong>, C. Morgan, A. Masullo, I. Craddock, A. Whone, &ldquo;Real World Parkinson&rsquo;s Disease Tremor and Score Prediction using Wearable IMU Sensors.&rdquo;
-        <div class="pub-venue"><em>IEEE Healthcom 2023</em></div>
+        <div class="pub-venue"><em>IEEE Healthcom 2023</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
       <div class="pub-item">
         U. Erol, F. Raimondo, <strong>James Pope</strong>, et al., &ldquo;Multi-sensor, multi-device smart building indoor environmental dataset.&rdquo;
@@ -574,15 +602,15 @@
       </div>
       <div class="pub-item">
         U. Erol, F. Raimondo, <strong>James Pope</strong>, et al., &ldquo;Evaluating Concept Drift Detectors on Real-World Data.&rdquo;
-        <div class="pub-venue"><em>SPICES 2023</em></div>
+        <div class="pub-venue"><em>SPICES 2023</em> <span class="pub-badge badge-workshop">Workshop</span></div>
       </div>
       <div class="pub-item">
         C. Paschou, F. Raimondo, M. Gugala, D. McEwan, <strong>James Pope</strong>, G. Oikonomou, &ldquo;CRICKET: A practical physical layer key agreement protocol for IoT networks.&rdquo;
-        <div class="pub-venue"><em>IEEE ICC 2023</em></div>
+        <div class="pub-venue"><em>IEEE ICC 2023</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
       <div class="pub-item">
         I. Mavromatis, A. Sanchez-Mompo, F. Raimondo, <strong>James Pope</strong>, et al., &ldquo;Lightweight Ensemble Framework of Data Drift Detectors for Resource-Constrained IoT Devices.&rdquo;
-        <div class="pub-venue"><em>IEEE CCNC 2023</em></div>
+        <div class="pub-venue"><em>IEEE CCNC 2023</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
     </div>
 
@@ -590,11 +618,11 @@
     <div class="pub-list">
       <div class="pub-item">
         F. Raimondo, U. Erol, S. Gunner, <strong>James Pope</strong>, et al., &ldquo;IoT Key Exchange Performance Analysis.&rdquo;
-        <div class="pub-venue"><em>ACM USWC 2022</em></div>
+        <div class="pub-venue"><em>ACM USWC 2022</em> <span class="pub-badge badge-workshop">Workshop</span></div>
       </div>
       <div class="pub-item">
         C. Donaldson, <strong>James Pope</strong>, &ldquo;Data Collection and Analysis of Print and Fan Fiction Classification.&rdquo;
-        <div class="pub-venue"><em>ICPRAM 2022</em> &mdash; Candidate for Best Poster <span class="pub-badge badge-award">Best Poster</span></div>
+        <div class="pub-venue"><em>ICPRAM 2022</em> <span class="pub-badge badge-conference">Conference</span> <span class="pub-badge badge-award">Candidate Best Poster</span></div>
       </div>
     </div>
 
@@ -602,11 +630,11 @@
     <div class="pub-list">
       <div class="pub-item">
         <strong>James Pope</strong>, et al., &ldquo;Container Escape Detection for Edge Devices.&rdquo;
-        <div class="pub-venue"><em>ACM SenSys / DATA 2021</em></div>
+        <div class="pub-venue"><em>ACM SenSys / DATA 2021</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
       <div class="pub-item">
         <strong>James Pope</strong>, M. Terwilliger, &ldquo;Seam Carving for Image Classification Privacy.&rdquo;
-        <div class="pub-venue"><em>ICPRAM 2021</em></div>
+        <div class="pub-venue"><em>ICPRAM 2021</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
       <div class="pub-item">
         A. Mahmoudi, L. Hashemi, M. Jasemi, <strong>James Pope</strong>, &ldquo;A comparison on PSO and GA performance in deriving the efficient frontier of stock portfolios.&rdquo;
@@ -618,7 +646,7 @@
     <div class="pub-list">
       <div class="pub-item">
         <strong>James Pope</strong>, M. Terwilliger, D. Taylor, et al., &ldquo;Annotating Documents using Active Learning Methods for a Maintenance Analysis Application.&rdquo;
-        <div class="pub-venue"><em>ACM AIPR 2020</em> &mdash; Open Access</div>
+        <div class="pub-venue"><em>ACM AIPR 2020</em> &mdash; Open Access <span class="pub-badge badge-conference">Conference</span></div>
       </div>
       <div class="pub-item">
         R. McConville, G. Archer, I. Craddock, M. Kozlowski, R. Piechocki, <strong>James Pope</strong>, R. Santos-Rodriguez, &ldquo;Vesta: A digital health analytics platform for a smart home in a box.&rdquo;
@@ -630,7 +658,7 @@
       </div>
       <div class="pub-item">
         <strong>James Pope</strong>, J. Connell, D. Powers, X. Fafoutis, D. Taylor, &ldquo;Supervised Machine Learning and Feature Selection for a Document Analysis Application.&rdquo;
-        <div class="pub-venue"><em>ICPRAM 2020</em></div>
+        <div class="pub-venue"><em>ICPRAM 2020</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
     </div>
 
@@ -638,7 +666,7 @@
     <div class="pub-list">
       <div class="pub-item">
         A. Elsts, <strong>James Pope</strong>, X. Fafoutis, R. Piechocki, G. Oikonomou, &ldquo;INSTANT: A TSCH Schedule for Data Collection from Mobile Nodes.&rdquo;
-        <div class="pub-venue"><em>ACM EWSN 2019</em></div>
+        <div class="pub-venue"><em>ACM EWSN 2019</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
       <div class="pub-item">
         D. Jarchi, <strong>James Pope</strong>, T. K. M. Lee, L. Tamjidi, A. Mirzaei, S. Sanei, &ldquo;A Review on Accelerometry Based Gait Analysis and Emerging Clinical Applications.&rdquo;
@@ -650,15 +678,15 @@
       </div>
       <div class="pub-item">
         <strong>James Pope</strong>, A. Vafeas, A. Elsts, G. Oikonomou, R. Piechocki, I. Craddock, &ldquo;An Accelerometer Lossless Compression Algorithm and Energy Analysis for IoT Devices.&rdquo;
-        <div class="pub-venue"><em>IEEE WCNC 2018</em></div>
+        <div class="pub-venue"><em>IEEE WCNC 2018</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
       <div class="pub-item">
         X. Fafoutis, L. Marchegiani, A. Elsts, <strong>James Pope</strong>, R. Santos-Rodriguez, I. Craddock, &ldquo;Extending the battery lifetime of wearable sensors with embedded machine learning.&rdquo;
-        <div class="pub-venue"><em>IEEE WF-IoT 2018</em></div>
+        <div class="pub-venue"><em>IEEE WF-IoT 2018</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
       <div class="pub-item">
         <strong>James Pope</strong>, R. McConville, M. Kozlowski, et al., &ldquo;SPHERE in a Box: Practical and Scalable EurValve Activity Monitoring Smart Home Kit.&rdquo;
-        <div class="pub-venue"><em>IEEE LCN 2017</em></div>
+        <div class="pub-venue"><em>IEEE LCN 2017</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
     </div>
 
@@ -666,7 +694,7 @@
     <div class="pub-list">
       <div class="pub-item">
         <strong>James Pope</strong>, R. Simon, &ldquo;CREST: An Epoch-Oriented Routing Control Plane for Low-Power and Lossy Networks.&rdquo;
-        <div class="pub-venue"><em>IEEE SenseAPP 2013</em> &mdash; <strong>Best Paper Award</strong> (AR 25%) <span class="pub-badge badge-award">Best Paper</span></div>
+        <div class="pub-venue"><em>IEEE SenseAPP 2013</em> &mdash; <strong>Best Paper Award</strong> (AR 25%) <span class="pub-badge badge-conference">Conference</span> <span class="pub-badge badge-award">Best Paper</span></div>
       </div>
       <div class="pub-item">
         <strong>James Pope</strong>, R. Simon, &ldquo;The Impact of Packet Fragmentation and Reassembly in Resource Constrained Wireless Networks.&rdquo;
@@ -674,19 +702,19 @@
       </div>
       <div class="pub-item">
         <strong>James Pope</strong>, R. Simon, &ldquo;Distributed Algorithm for Maximizing Linear Tree Density for One-to-Many Wireless Communication.&rdquo;
-        <div class="pub-venue"><em>ACM PE-WASUN 2016</em></div>
+        <div class="pub-venue"><em>ACM PE-WASUN 2016</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
       <div class="pub-item">
         <strong>James Pope</strong>, R. Simon, &ldquo;Efficient One-to-Many Broadcasting for Resource-constrained Wireless Networks.&rdquo;
-        <div class="pub-venue"><em>IEEE LCN 2015</em></div>
+        <div class="pub-venue"><em>IEEE LCN 2015</em> <span class="pub-badge badge-conference">Conference</span></div>
       </div>
       <div class="pub-item">
         <strong>James Pope</strong>, P. Orsinger, M. Fisher, &ldquo;Inter-Cloud Data Persistence in DIL Networks.&rdquo;
-        <div class="pub-venue"><em>IEEE CloudNA 2015</em></div>
+        <div class="pub-venue"><em>IEEE CloudNA 2015</em> <span class="pub-badge badge-workshop">Workshop</span></div>
       </div>
       <div class="pub-item">
         <strong>James Pope</strong>, R. Simon, &ldquo;Managing Internet Protocol Routing for Low Power Lossy Networks.&rdquo;
-        <div class="pub-venue"><em>IEEE Globecom 2010</em></div>
+        <div class="pub-venue"><em>IEEE Globecom 2010</em> <span class="pub-badge badge-workshop">Workshop</span></div>
       </div>
     </div>
   </div>
