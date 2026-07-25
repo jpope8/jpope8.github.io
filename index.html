@@ -162,7 +162,7 @@
     /* ── PUBLICATIONS ── */
     .pub-year { font-size: 1.1rem; font-weight: 700; color: var(--accent); margin: 2rem 0 .8rem; }
     .pub-year:first-of-type { margin-top: 0; }
-    .pub-list { display: flex; flex-direction: column; gap: .9rem; }
+    .pub-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 1rem; }
     .pub-item {
       background: var(--white); border: 1px solid var(--border);
       border-radius: 8px; padding: 1rem 1.2rem;
@@ -801,7 +801,7 @@
         <h3>Aileen Wang</h3>
         <div class="student-dept">Electrical &amp; Electronic Engineering &middot; 2023&ndash;Present</div>
         <div class="student-title">Federated Learning for Wireless Communications</div>
-        <span class="student-role">Second Supervisor</span>
+        <span class="student-role">Main Supervisor</span>
       </div>
       <div class="student-card">
         <h3>Tim Sanmoogan</h3>
